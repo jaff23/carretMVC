@@ -1,0 +1,79 @@
+body { 			
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 0;
+    width: 600px;
+}
+
+
+#menu {
+    float:left;
+    width:100%;
+    padding:0px;
+    margin:0px;
+    list-style-type:none;
+    font:bold italic 15px verdana;
+      
+}
+#menu a{
+    float:left;
+    width:auto;
+    text-decoration:none;
+    text-align:center;
+    color:#ff0000;
+    background-color:#f7f8e8;
+    padding:6px 10px;
+    border-right:1px solid white;
+    height: 25px;
+   
+}
+
+
+#menu a:visited{
+  background-color:#000000;
+  color:#ffffff;
+}
+
+#menu a:hover{
+    background-color:#336699;
+}
+
+#menu a:active{
+    background-color:#336699;
+}
+
+
+
+#menu #actiu a{ /*TAB seleccionado, Página Actual*/
+
+background-color: #336699;
+
+border-color: #336699;
+
+}
+
+#menu li{
+     display:inline;
+}
+#contenedorform, #formlogin {
+ background-color: #FFFFEE;
+    border: 1px solid #CCCCCC;
+    margin: 0 auto;
+    padding: 10px 0 10px 18px;
+    width: 500px;
+    margin-bottom: 27px;
+  
+}
+#foto {
+    width:200px;
+    
+}
+
+ #formlogin {
+ position:relative;
+  top:70px;
+  
+}
+
