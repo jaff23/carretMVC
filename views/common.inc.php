@@ -40,6 +40,18 @@ function mostrarCapssaleraPagina($TitolPag) {
                         return true;
                 }
         }
+          function validaProducte(F) {
+
+              //alert("valida");
+                if( vacio(F.nomProducte.value) == false || vacio(F.preu.value) == false ) {
+                        alert("T'has deixat camps per omplir.");
+                        return false;
+                }else{
+                        return true;
+                }
+        }
+        
+        
         </script>
         </head>
         <body>

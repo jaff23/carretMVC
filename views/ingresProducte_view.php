@@ -1,12 +1,15 @@
 
 <?php
+
 include_once "common.inc.php";
 
 
  menu('ingres_producte');
 mostrarCapssaleraPagina("Ingressar un producte");
+
+
 ?>
-<form name="ingresProducte_view" method="POST"   enctype="multipart/form-data" action="../controllers/ingresProducte_controller.php">
+<form name="ingresProducte_view" method="POST"   enctype="multipart/form-data" action="../controllers/ingresProducte_controller.php" onSubmit="return validaProducte(this);">
     <ul>
      
         <li>Nom<br /><input type="text" name="nomProducte" /></li>

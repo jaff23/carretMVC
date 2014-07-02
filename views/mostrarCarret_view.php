@@ -105,10 +105,14 @@ function mostrarCarr($id_producte, $unitats, $start) {
             </form>
        
         <?php
+             if (isset($_SESSION['login'])) {
+
                    echo '<a href="controllers/modificarProducte_controller.php?id_producte='.$producte->getValue('id_producte').'">Modificar producte </a><br /> <br>';
-                     ?>
+             }  
+                   ?>
              </div>
             <?php
+             
         }
         ?>
        
