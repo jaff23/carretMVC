@@ -26,7 +26,7 @@ if (isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count
 ?>
 
 
-<div id="formlogin">
+<div id="form">
 <form name= "logejarUsuari" action="../controllers/loguejarUsuari_controller.php" method="post"enctype="multipart/form-data">
      Entra el teu login:
         <input name="login" type="text">

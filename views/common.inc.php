@@ -73,8 +73,9 @@ function mostrarCapssaleraPagina($TitolPag) {
 
                 </li>
                 <li <?php echo $actiu == 'ingres_producte' ? 'id="actiu"' : '' ?>>
-                        <a href="/carretMVC/controllers/ingresProducte_controller.php">Ingressar Producte</a> 
-                    
+                    <?php if (isset($_SESSION['login'])) { ?>
+                        <a href="/carretMVC/views/ingresProducte_view.php">Ingressar Producte</a>   
+                    <?php } ?>
                 </li>
                 <li <?php echo $actiu == 'logejarUsuari' ? 'id="actiu"' : '' ?>>
                      <?php if (!isset($_SESSION['login'])) { ?>
@@ -105,7 +106,7 @@ function mostrarCapssaleraPagina($TitolPag) {
             <!-- El nombre del elemento de entrada determina el nombre en el array $_FILES -->
             <input name="foto" type="file" />
             <!-- <input type="submit" value="Send File" /> -->
-            <br><br> <br><br>
+            <br>
          <?php
         }
 

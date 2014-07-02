@@ -57,7 +57,7 @@ border-color: #336699;
 #menu li{
      display:inline;
 }
-#contenedorform, #formlogin {
+#contenedorform, #form {
  background-color: #FFFFEE;
     border: 1px solid #CCCCCC;
     margin: 0 auto;
@@ -71,7 +71,7 @@ border-color: #336699;
     
 }
 
- #formlogin {
+ #form {
  position:relative;
   top:70px;
   
