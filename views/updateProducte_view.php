@@ -11,8 +11,13 @@ require_once(__DIR__.'/../models/Producte_model.php');
 
 
 
-menu('productes');
+session_start();
+
+if (isset($_SESSION['login'])){
 mostrarCapssaleraPagina("Modificar Producte");
+menu('ingres_producte');
+}
+
 ?>
 <form name="updateProducte_view" method="post" enctype="multipart/form-data"  action="../controllers/modificarProducte_controller.php">
     <label for="nomProducte">Nom del Producte</label>

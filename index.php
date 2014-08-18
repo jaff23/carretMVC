@@ -24,9 +24,10 @@ require_once(__DIR__.'/models/Producte_model.php');
 session_start();
 
 
-$unitats = isset($_POST['unitats']) ? (int) $_POST['unitats'] : 0;
-$id_producte = isset($_POST['id_producte']) ? $_POST['id_producte'] : 0;
-$start = isset($_GET["start"]) ? (int) $_GET["start"] : 0;
+$unitats = isset($_POST['unitats']) ? filter_input(INPUT_POST,'unitats',FILTER_SANITIZE_NUMBER_INT):0;
+
+$id_producte = isset($_POST['id_producte']) ? filter_input(INPUT_POST,'id_producte',FILTER_SANITIZE_NUMBER_INT): 0;
+$start = isset($_GET['start']) ? filter_input(INPUT_GET,'start', FILTER_SANITIZE_NUMBER_INT) : 0;
 
 if (!isset($_SESSION["carr"]))
     $_SESSION["carr"] = array();
@@ -78,8 +79,8 @@ function afegirProd($id_producte, $unitats) {
 function eliminarProd() {
     $productes = Producte_model::getProductes();
 
-    if (isset($_GET["id_producte"]) and $_GET["id_producte"] >= 1 and $_GET["id_producte"] <= 100) {
-        $id_producte = (int) $_GET["id_producte"];
+    if (isset($_GET['id_producte'])  and filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT) >= 1 and filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT) <= 100) {
+        $id_producte = filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT);
         if (isset($_SESSION["carr"][$id_producte]))
             unset($_SESSION["carr"][$id_producte]);
     }
