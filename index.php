@@ -27,7 +27,7 @@ session_start();
 $unitats = isset($_POST['unitats']) ? filter_input(INPUT_POST,'unitats',FILTER_SANITIZE_NUMBER_INT):0;
 
 $id_producte = isset($_POST['id_producte']) ? filter_input(INPUT_POST,'id_producte',FILTER_SANITIZE_NUMBER_INT): 0;
-$start = isset($_GET['start']) ? filter_input(INPUT_GET,'start', FILTER_SANITIZE_NUMBER_INT) : 0;
+$start = (int) (isset($_GET['start']) ? filter_input(INPUT_GET,'start', FILTER_SANITIZE_NUMBER_INT) : 0);
 
 if (!isset($_SESSION["carr"]))
     $_SESSION["carr"] = array();

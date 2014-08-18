@@ -8,7 +8,7 @@ mostrarCapssaleraPagina("Registre usuari");
     <ul>
         <li>Login<br /><input type="text" name="login" /></li>
         <li>Nom<br /><input type="text" name="nom" /></li>
-        <li>Password<br /><input type="text" name="password" /></li>
+        <li>Password<br /><input type="password" name="password" /></li>
         <li>Foto, Seleccionar:<br /><?php inputImatges(); ?>
         </li>
         <br> <br>
