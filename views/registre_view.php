@@ -4,7 +4,7 @@ include_once "common.inc.php";
 menu('registre');
 mostrarCapssaleraPagina("Registre usuari");
 ?>
-<form name="usuari" method="POST"   enctype="multipart/form-data" action="../controllers/registre_controller.php" onSubmit="return valida(this);">
+<form id="registre-usuari" name="usuari" method="POST" enctype="multipart/form-data" action="../controllers/registre_controller.php" onSubmit="return valida(this);">
     <ul>
         <li>Login<br /><input type="text" name="login" /></li>
         <li>Nom<br /><input type="text" name="nom" /></li>
