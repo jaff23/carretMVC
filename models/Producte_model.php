@@ -15,6 +15,7 @@ class Producte_model extends DataObject {
     public static function getProductes() {
         $conn = parent::connect();
         // Retorna un nombre de registres limitat per la clausula limit
+        //Podria ficar select * from taula_producte
         $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . TAULA_PRODUCTE ;
         try {
             $st = $conn->prepare($sql);

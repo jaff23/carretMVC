@@ -3,18 +3,20 @@
 include_once(__DIR__."/../DataObject.class.php");
 include_once(__DIR__."/../views/common.inc.php");
 include_once(__DIR__."/../models/Producte_model.php");
+include_once(__DIR__."/../helpers/Input.php");
+
 
 
 
 if (count($_GET) > 0 and isset($_GET['id_producte'])) {
     
-    $id_producte = filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT);
+    $id_producte = Input::getInt('id_producte');
     $producte = Producte_model::getProducte($id_producte);
     require_once(__DIR__ . '/../views/updateProducte_view.php');
     
 } else if (count($_POST) > 0 and isset($_POST['id_producte']) and isset($_POST['nomProducte']) and isset($_POST['preu'])) {
     
-    $id_producte = filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT);
+    $id_producte = Input::postInt('id_producte');
     $nomProducte = $_POST['nomProducte'];
     $preu = (float) $_POST['preu'];
     

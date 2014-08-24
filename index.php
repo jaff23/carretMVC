@@ -9,6 +9,7 @@
  */
 //require_once("views/common.inc.php");
 //require_once ("models/Producte_model.php");
+require_once(__DIR__."/helpers/Input.php");
 require_once(__DIR__."/views/mostrarCarret_view.php");
 
 require_once "DataObject.class.php";
@@ -24,10 +25,14 @@ require_once(__DIR__.'/models/Producte_model.php');
 session_start();
 
 
-$unitats = isset($_POST['unitats']) ? filter_input(INPUT_POST,'unitats',FILTER_SANITIZE_NUMBER_INT):0;
+//$unitats = isset($_POST['unitats']) ? filter_input(INPUT_POST,'unitats',FILTER_SANITIZE_NUMBER_INT):0;
+$unitats = isset($_POST['unitats']) ? Input::postInt('unitats'):0;
 
-$id_producte = isset($_POST['id_producte']) ? filter_input(INPUT_POST,'id_producte',FILTER_SANITIZE_NUMBER_INT): 0;
-$start = (int) (isset($_GET['start']) ? filter_input(INPUT_GET,'start', FILTER_SANITIZE_NUMBER_INT) : 0);
+//$id_producte = isset($_POST['id_producte']) ? filter_input(INPUT_POST,'id_producte',FILTER_SANITIZE_NUMBER_INT): 0;
+$id_producte = isset($_POST['id_producte']) ?Input::postInt('id_producte'): 0;
+//$start = (int) (isset($_GET['start']) ? filter_input(INPUT_GET,'start', FILTER_SANITIZE_NUMBER_INT) : 0);
+
+$start = (int) (isset($_GET['start']) ? Input::getInt('start'): 0);
 
 if (!isset($_SESSION["carr"]))
     $_SESSION["carr"] = array();
@@ -44,7 +49,7 @@ function afegirProd($id_producte, $unitats) {
 
     if ($id_producte >= 1) {
 
-        // quan no existeix cap unitat del producte e qüestió
+        // quan no existeix cap unitat del producte en qüestió
         if (!isset($_SESSION['carr'][$id_producte])) {
 
             // desem a la variable temporal l'objecte del producte en qüestió
@@ -79,8 +84,8 @@ function afegirProd($id_producte, $unitats) {
 function eliminarProd() {
     $productes = Producte_model::getProductes();
 
-    if (isset($_GET['id_producte'])  and filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT) >= 1 and filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT) <= 100) {
-        $id_producte = filter_input(INPUT_GET,'id_producte',FILTER_SANITIZE_NUMBER_INT);
+    if (isset($_GET['id_producte'])  and Input::getInt('id_producte') >= 1 and Input::getInt('id_producte') <= 100) {
+        $id_producte = Input::getInt('id_producte');
         if (isset($_SESSION["carr"][$id_producte]))
             unset($_SESSION["carr"][$id_producte]);
     }
